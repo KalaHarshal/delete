@@ -1,6 +1,6 @@
 #a
-# Input date-time string in the format "YYYY-MM-DD HH:MM:SS.ssssss"
-date_time = "2023-04-15 09:03:32.744178"
+# Take input from the user in the format "YYYY-MM-DD HH:MM:SS.ssssss"
+date_time = input("Enter the date and time (YYYY-MM-DD HH:MM:SS.ssssss): ")
 
 # Extract year, month, day, and time using lambda functions
 get_year = lambda dt: dt[:4]
@@ -9,10 +9,11 @@ get_day = lambda dt: dt[8:10]
 get_time = lambda dt: dt[11:]
 
 # Output results
-print(get_year(date_time))   # 2023
-print(int(get_month(date_time)))  # 4 (convert to int to remove leading zero)
-print(int(get_day(date_time)))  # 15 (convert to int to remove leading zero)
-print(get_time(date_time))    # 09:03:32.744178
+print(get_year(date_time))   # Year (2023)
+print(int(get_month(date_time)))  # Month (4, removing leading zero)
+print(int(get_day(date_time)))  # Day (15, removing leading zero)
+print(get_time(date_time))    # Time (09:03:32.744178)
+
 
 
 
