@@ -1,17 +1,19 @@
 #a
-from datetime import datetime
+# Input date-time string in the format "YYYY-MM-DD HH:MM:SS.ssssss"
+date_time = "2023-04-15 09:03:32.744178"
 
-current_datetime = datetime.now()
+# Extract year, month, day, and time using lambda functions
+get_year = lambda dt: dt[:4]
+get_month = lambda dt: dt[5:7]
+get_day = lambda dt: dt[8:10]
+get_time = lambda dt: dt[11:]
 
-extract_year = lambda dt: dt.year
-extract_month = lambda dt: dt.month
-extract_day = lambda dt: dt.day
-extract_time = lambda dt: dt.strftime("%H:%M:%S")
+# Output results
+print(get_year(date_time))   # 2023
+print(int(get_month(date_time)))  # 4 (convert to int to remove leading zero)
+print(int(get_day(date_time)))  # 15 (convert to int to remove leading zero)
+print(get_time(date_time))    # 09:03:32.744178
 
-print("Year:", extract_year(current_datetime))
-print("Month:", extract_month(current_datetime))
-print("Day:", extract_day(current_datetime))
-print("Time:", extract_time(current_datetime))
 
 
 #b
