@@ -1,0 +1,41 @@
+# Program to check if the input letter is a vowel or consonant
+
+# Taking input from the user
+letter = input("Input a letter of the alphabet: ")
+
+# Check if the input is an alphabet and its length is 1
+if letter.isalpha() and len(letter) == 1:
+    # Check if the letter is a vowel
+    if letter in 'aeiouAEIOU':
+        print(letter + " is a vowel.")
+    else:
+        print(letter + " is a consonant.")
+else:
+    print("Please enter a single letter of the alphabet.")
+
+
+
+
+
+
+
+
+# Original list of numbers
+numbers = [22.4, 4.0, 16.22, 9.1, 11.0, 12.22, 14.2, 5.2, 17.5]
+
+# Step 2: Find the minimum and maximum values
+min_value = min(numbers)
+max_value = max(numbers)
+
+# Step 3: Multiply each number by 5
+multiplied_numbers = [num * 5 for num in numbers]
+
+# Step 4: Get unique numbers and sort them in ascending order
+unique_sorted_numbers = sorted(set(multiplied_numbers))
+
+# Output results
+print("Original list:", numbers)
+print("Minimum value:", min_value)
+print("Maximum value:", max_value)
+print("Result:")
+print(" ".join(map(str, unique_sorted_numbers)))
