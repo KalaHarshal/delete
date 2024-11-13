@@ -1,0 +1,39 @@
+# Function to check if a number is an Armstrong number
+def is_armstrong(number):
+    # Convert the number to a string to easily get its digits
+    digits = [int(digit) for digit in str(number)]
+    power = len(digits)  # The power is the number of digits
+    # Calculate the sum of each digit raised to the power of the number of digits
+    armstrong_sum = sum(digit ** power for digit in digits)
+    # Check if the calculated sum matches the original number
+    return armstrong_sum == number
+
+# Higher-order function to apply the Armstrong check to each number in the list
+def check_armstrong_numbers(numbers):
+    # Use map to apply is_armstrong to each number in the list
+    return list(map(is_armstrong, numbers))
+
+# Sample input
+numbers = [153, 370, 371, 407, 123, 135]
+
+# Check for Armstrong numbers and print the results
+armstrong_results = check_armstrong_numbers(numbers)
+print("Armstrong Check Results:", armstrong_results)
+
+
+
+
+# Number of rows for the top half of the pattern
+rows = 5
+
+# Construct the top half of the pattern
+for i in range(1, rows + 1):
+    for j in range(i):
+        print("*", end=" ")
+    print()
+
+# Construct the bottom half of the pattern
+for i in range(rows - 1, 0, -1):
+    for j in range(i):
+        print("*", end=" ")
+    print()
