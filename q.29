@@ -1,0 +1,43 @@
+# Sample series of numbers
+numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+# Initialize counters
+even_count = 0
+odd_count = 0
+
+# Loop through each number in the series
+for num in numbers:
+    if num % 2 == 0:  # Check if the number is even
+        even_count += 1
+    else:  # If it's not even, it must be odd
+        odd_count += 1
+
+# Print the results
+print("Number of even numbers:", even_count)
+print("Number of odd numbers:", odd_count)
+
+
+
+# Define a custom exception class
+class MaxBorrowLimitException(Exception):
+    def __init__(self, message="Maximum book borrowing limit exceeded"):
+        self.message = message
+        super().__init__(self.message)
+
+# Function to check borrowing limit
+def borrow_books(num_books_borrowed, max_books_limit):
+    if num_books_borrowed > max_books_limit:
+        # Raise the custom exception if limit is exceeded
+        raise MaxBorrowLimitException()
+    else:
+        print("Books borrowed successfully.")
+
+# Sample Input
+num_books_borrowed = 4
+max_books_limit = 3
+
+# Try to borrow books and handle exception if the limit is exceeded
+try:
+    borrow_books(num_books_borrowed, max_books_limit)
+except MaxBorrowLimitException as e:
+    print("MaxBorrowLimitException:", e)
