@@ -1,4 +1,5 @@
 # Sample input list
+from functools import reduce 
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 # Using higher-order functions
@@ -10,7 +11,7 @@ even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
 squared_numbers = list(map(lambda x: x ** 2, numbers))
 
 # 3. Find the sum of all numbers
-sum_of_numbers = sum(numbers)
+sum_of_numbers = reduce(lambda x,y:x+y, numbers)
 
 # Output results
 print("Even Numbers:", even_numbers)
