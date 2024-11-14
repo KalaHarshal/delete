@@ -16,33 +16,26 @@ Validation :
 • Maximum length 16 characters'''
 #a:
 
-# Function to process the transaction log and calculate the balance
-def calculate_balance(transaction_log):
-    balance = 0
-    i = 0
-    while i < len(transaction_log):
-        if transaction_log[i] == 'D':  # Deposit
-            i += 2
-            amount_str = ""
-            while i < len(transaction_log) and transaction_log[i].isdigit():
-                amount_str += transaction_log[i]
-                i += 1
-            balance += int(amount_str)
-        elif transaction_log[i] == 'W':  # Withdrawal
-            i += 2
-            amount_str = ""
-            while i < len(transaction_log) and transaction_log[i].isdigit():
-                amount_str += transaction_log[i]
-                i += 1
-            balance -= int(amount_str)
-        else:
-            i += 1
-    return balance
+# Initialize the balance to 0
+balance = 0
 
-# Input transaction log from the user
-transaction_log = input("Enter transaction log (e.g., 'D 300 D 300 W 200 D 100'): ")
-net_balance = calculate_balance(transaction_log)
-print("Net Balance:", net_balance)
+# Read the transaction log inputs from the user
+while True:
+    transaction = input("Enter transaction (D for deposit, W for withdrawal or 'exit' to stop): ")
+    if transaction.lower() == 'exit':
+        break
+    action, amount = transaction.split()
+    amount = int(amount)
+    
+    if action == 'D':
+        balance += amount  # Deposit adds to the balance
+    elif action == 'W':
+        balance -= amount  # Withdrawal subtracts from the balance
+
+# Output the final balance
+print(balance)
+
+
 
 #b: password validation
 import re
